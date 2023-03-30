@@ -1,0 +1,171 @@
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@font-face {
+    font-family: font1;
+    src: url('../font/Outfit-Regular.ttf');
+    font-weight: 300;
+}
+
+@mixin center($align, $justify){
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: hsl(0, 0%, 100%);
+}
+
+body{
+    max-width: 1440px;
+    width: 100%;
+    min-width: 375px;
+    min-height: 100vh;
+    max-height: 100%;
+    background-color: hsl(217, 54%, 11%);
+    font-family: font1;
+    @include center(center, center);
+    flex-direction: column;
+    align-content: center;
+    padding: 6% 0;
+}
+
+main.card{
+    width: 9.65cm;
+    height: 37.5em;
+    background-color:  hsl(216, 50%, 16%);
+    padding: 1.5%;
+    border-radius: 12px;
+
+    @media (max-width: 1000px) {
+        height: 16.2cm;
+        padding: 5%;
+    }
+}
+
+
+.card__element{
+    width: 100%;
+    margin: 0 0 6% 0;
+}
+
+.is-header{
+    button{
+        width: 100%;
+        border-radius: 10px;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        position: relative;
+
+        &:hover{
+            background-color: hsl(178, 100%, 50%);
+            img{
+                opacity: 35%;
+                &:nth-child(2){
+                    width: 60px;
+                    height: 60px;
+                    display: block;
+                    position: absolute;
+                    right: 40%;
+                    top: 40%;
+                    opacity: 100%;
+                }
+            } 
+        }
+    }
+
+    img{
+        width: 100%;
+        height: 90%;
+        border-radius: 10px;
+        background: transparent;
+        border: 0;
+        &:nth-child(2){
+            display: none;
+            border-radius: unset;
+        }
+    }
+}
+
+.is-center-main{
+    @include center(start, start);
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 8%;
+
+    .is-center-main__element{
+        width: 100%;
+        @include center(center, space-between);
+
+        div{
+            @include center(center, start);
+            width: 50%;
+            gap: 8px;
+            img{
+                width: 10px;
+            }
+
+            img[alt="icon-clock"]{
+                width: 18px;
+            }
+
+            &:nth-child(1){
+                span{
+                    color: hsl(178, 100%, 50%);
+                    font-weight: 700;
+                }
+            }
+            &:nth-child(2){
+                @include center(center, end);
+                span{
+                    color: hsl(215, 51%, 70%);
+                }
+            }
+        }
+    }
+
+    h1{
+        font-size: 1.3em;
+    }
+
+    p{
+        font-weight: 500;
+        font-size: 18px;
+        color: hsl(215, 51%, 70%);
+    }
+}
+
+.is-footer{
+    @include center(center, start);
+    gap: 22px;
+    padding: 4% 0 0 0;
+    border-top: 1.5px solid hsl(215, 32%, 27%);
+
+    img{
+        border-radius: 50%;
+        border: 1.8px solid hsl(0, 0%, 100%);
+    }
+
+    span{
+        color: hsl(215, 51%, 70%);
+    }
+
+}
+
+
+a{
+    text-decoration: none;
+    &:hover, &:hover :is(h1){
+        color: hsl(178, 100%, 50%);
+    }
+}
+
+img{
+    width: 32px;
+}
